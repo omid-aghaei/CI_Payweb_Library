@@ -161,19 +161,20 @@ class Webpay_bahamta {
 
         	if($result->ok === true)
         	{
+			$payment_result = $result->result;
         		return 
         			[
         				'ok' => true, // successful
-        				'state' => $result->state,
-        				'total' => $result->total,
-        				'wage' => $result->wage,
-        				'gateway' => $result->gateway,
-        				'terminal' => $result->terminal,
-        				'pay_ref' => $result->pay_ref,
-        				'pay_trace' => $result->pay_trace,
-        				'pay_pan' => $result->pay_pan,
-        				'pay_cid' => $result->pay_cid,
-        				'pay_time' => $result->pay_time,
+        				'state' => $payment_result->state,
+        				'total' => $payment_result->total,
+        				'wage' => $payment_result->wage,
+        				'gateway' => $payment_result->gateway,
+        				'terminal' => $payment_result->terminal,
+        				'pay_ref' => $payment_result->pay_ref,
+        				'pay_trace' => $payment_result->pay_trace,
+        				'pay_pan' => $payment_result->pay_pan,
+        				'pay_cid' => $payment_result->pay_cid,
+        				'pay_time' => $payment_result->pay_time,
         				'amount_irr' => $amount_irr,
         				'reference' => $reference,
         				'error' => '',
@@ -190,7 +191,7 @@ class Webpay_bahamta {
         }
 
         /**
-         * ترجمع مقدار خطا
+         * ترجمه مقدار خطا
          * @param  $err  		کد خطا
          * @return 			    مقدار ترجمه شده خطا
          */
